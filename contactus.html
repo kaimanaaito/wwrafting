@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a id="logo_link" href="index.html">
+            <img src="images/logo.jpg" alt="Adventure Logo">
+        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="page2.html">Page 2</a>
+            <a href="site-plan-rafting.html">Site Plan</a>
+            <a href="contactus.html">Contact Us</a>
+        </nav>   
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- フィードバックメッセージのエリア -->
+        <div id="feedback"></div>
+
+        <!-- フォーム -->
+        <form id="contact-form">
+            <label for="user_name">名前:</label>
+            <input type="text" id="user_name" name="user_name" required>
+
+            <label for="user_email">メールアドレス:</label>
+            <input type="email" id="user_email" name="user_email" required>
+
+            <label for="message">メッセージ:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">送信</button>
+        </form>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Dry Oar © 2024 - Aito Iida</p>
+        <p><a href="site-plan-rafting.html">Site Plan</a></p>
+        <p><a href="contactus.html">Contact Us</a></p>
+        <div class="social">
+            <a href="https://facebook.com" target="_blank">
+                <img src="images/facebook.png" alt="fb icon">
+            </a>
+            <a href="https://twitter.com" target="_blank">
+                <img src="images/twitter.png" alt="twitter icon">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="images/instagram.png" alt="instagram icon">
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // フィードバックの div 要素を取得
+        const feedbackElement = document.getElementById('feedback');
+        // フォームを取得
+        const formElement = document.getElementById('contact-form');
+
+        // フォーム送信イベントリスナー
+        formElement.addEventListener('submit', function(e) {
+            e.preventDefault();  // デフォルトのフォーム送信を防ぐ
+
+            // フィードバックメッセージを表示
+            feedbackElement.innerHTML = 'こんにちは ' + formElement.user_name.value + 'さん！メッセージありがとうございます。すぐにご連絡いたします。';
+            feedbackElement.style.display = 'block';
+
+            // ページコンテンツを少し下に移動
+            document.body.classList.add('moveDown');
+        });
+    </script>
+</body>
+</html>
